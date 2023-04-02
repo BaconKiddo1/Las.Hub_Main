@@ -1246,14 +1246,27 @@ local themeList = argstable.Theme
                     return TogFunction
             end
 
-            function Elements:NewSlider(slidInf, slidTip, maxvalue, minvalue, callback)
+            function Elements.NewSlider(argstable)
+            local slidInf = argstable.Title
+            local slidTip = argstable.TitleInfo
+            local maxvalue = argstable.MaxValue
+            local minvalue = argstable.MinValue
+            local startvalue = argstable.Default
+            local callback = argstable.Function
+            
+             
                 slidInf = slidInf or "Slider"
                 slidTip = slidTip or "Slider tip here"
                 maxvalue = maxvalue or 500
                 minvalue = minvalue or 16
                 startVal = startVal or 0
+                startvalue = startvalue or maxvalue/2
                 callback = callback or function() end
-
+                 if startvalue > maxvalue then
+                    startvalue = maxvalue
+                 elseif startvalue < minvalue then
+                    startvalue = minvalue
+                 end
                 local sliderElement = Instance.new("TextButton")
                 local UICorner = Instance.new("UICorner")
                 local togName = Instance.new("TextLabel")
@@ -1351,7 +1364,7 @@ local themeList = argstable.Theme
                 val.Position = UDim2.new(0.352386296, 0, 0.272727281, 0)
                 val.Size = UDim2.new(0, 41, 0, 14)
                 val.Font = Enum.Font.GothamSemibold
-                val.Text = minvalue
+                val.Text = tostring(startvalue)
                 val.TextColor3 = themeList.TextColor
                 val.TextSize = 14.000
                 val.TextTransparency = 1.000
@@ -1492,11 +1505,12 @@ local themeList = argstable.Theme
 
             function Elements:NewDropdown(dropname, dropinf, list, callback)
                 local DropFunction = {}
+                local dropname = argstable.Title
                 dropname = dropname or "Dropdown"
                 list = list or {}
                 dropinf = dropinf or "Dropdown info"
                 callback = callback or function() end   
-
+                
                 local opened = false
                 local DropYSize = 33
 
