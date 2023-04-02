@@ -374,7 +374,7 @@ local themeList = argstable.Theme
 
     local first = true
 
-    function Tabs:NewTab(tabName)
+    function Tabs.NewTab(tabName)
         tabName = tabName or "Tab"
         local tabButton = Instance.new("TextButton")
         local UICorner = Instance.new("UICorner")
@@ -474,7 +474,7 @@ local themeList = argstable.Theme
             end
         end)()
     
-        function Sections:NewSection(secName, hidden)
+        function Sections.NewSection(secName, hidden)
             secName = secName or "Section"
             local sectionFunctions = {}
             local modules = {}
@@ -578,7 +578,11 @@ local themeList = argstable.Theme
                 updateSectionFrame()
                 UpdateSize()
             local Elements = {}
-            function Elements:NewButton(bname,tipINf, callback)
+            function Elements.NewButton(argstable)
+            local bname = argstable.Title
+            local tipINf = argstable.TitleInfo
+            local callback = argstable.Function
+            
                 showLogo = showLogo or true
                 local ButtonFunction = {}
                 tipINf = tipINf or "Tip: Clicking this nothing will happen!"
