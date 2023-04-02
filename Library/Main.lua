@@ -783,7 +783,11 @@ local themeList = argstable.Theme
                 return ButtonFunction
             end
 
-            function Elements:NewTextBox(tname, tTip, callback)
+            function Elements.NewTextBox(argstable)
+            local tname = argstable.Title
+            local tTip = argstable.TitleInfo
+            local callback = arsgtable.Function
+            
                 tname = tname or "Textbox"
                 tTip = tTip or "Gets a value of Textbox"
                 callback = callback or function() end
@@ -979,12 +983,16 @@ local themeList = argstable.Theme
                 end)()
             end 
 
-                function Elements:NewToggle(tname, nTip, callback)
+                function Elements.NewToggle(tname, nTip, def, callback)
+                local tname = argstable.Title
+                local nTip = argstable.TitleInfo
+                local def = argstable.Default
+                local callback = argstable.Function
                     local TogFunction = {}
                     tname = tname or "Toggle"
                     nTip = nTip or "Prints Current Toggle State"
                     callback = callback or function() end
-                    local toggled = false
+                    local toggled = def
                     table.insert(SettingsT, tname)
 
                     local toggleElement = Instance.new("TextButton")
