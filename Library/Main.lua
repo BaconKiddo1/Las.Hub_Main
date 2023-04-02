@@ -1162,6 +1162,16 @@ local themeList = argstable.Theme
                             Utility:TweenObject(blurFrame, {BackgroundTransparency = 1}, 0.2)
                         end
                     end)
+                    
+                    if def == true then
+                       img.ImageTransparency = 0
+                       toggled = true
+                       else
+                       img.ImageTransparency = 1
+                       toggled = false
+                    end
+                    
+                    
                     local hovering = false
                     btn.MouseEnter:Connect(function()
                         if not focusing then
