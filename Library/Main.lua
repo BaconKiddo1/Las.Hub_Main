@@ -983,7 +983,7 @@ local themeList = argstable.Theme
                 end)()
             end 
 
-                function Elements.NewToggle(tname, nTip, def, callback)
+                function Elements.NewToggle(argstable)
                 local tname = argstable.Title
                 local nTip = argstable.TitleInfo
                 local def = argstable.Default
