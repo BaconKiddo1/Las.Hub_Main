@@ -1679,10 +1679,10 @@ function library:CreateWindow(name, argstable)
                     end)
     
                     uis.InputChanged:Connect(function(input)
-                        if dragging_selector or input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                        if dragging_selector then
                             colorpicker:RefreshSelector()
                         end
-                        if dragging_hue or input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                        if dragging_hue then
                             colorpicker:RefreshHue()
                         end
                     end)
@@ -1865,7 +1865,7 @@ function library:CreateWindow(name, argstable)
                     end)
     
                     uis.InputChanged:Connect(function(input)
-                        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                        if dragging then
                             slider:Refresh()
                         end
                     end)
@@ -2219,7 +2219,7 @@ function library:CreateWindow(name, argstable)
                 end)
 
 				uis.InputChanged:Connect(function(input)
-					if dragging and input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					if dragging then
                         slider:Refresh()
 					end
 				end)
@@ -2808,10 +2808,10 @@ function library:CreateWindow(name, argstable)
                 end)
 
                 uis.InputChanged:Connect(function(input)
-                    if dragging_selector or input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                    if dragging_selector then
                         colorpicker:RefreshSelector()
                     end
-                    if dragging_hue or input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+                    if dragging_hue then
                         colorpicker:RefreshHue()
                     end
                 end)
